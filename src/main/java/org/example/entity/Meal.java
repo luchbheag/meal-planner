@@ -1,22 +1,41 @@
 package org.example.entity;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "meals")
 public class Meal {
-    private final String CATEGORY = "Category: ";
-    private final String NAME = "Name: ";
-    private final String INGREDIENTS = "Ingredients:";
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "category")
     private String category;
+    @Column(name = "name")
     private String name;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "meal_ingredient",
+            joinColumns = @JoinColumn(name = "meal_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     private List<Ingredient> ingredients;
 
     public Meal() {}
 
-    public Meal(String type, String name, List<Ingredient> ingredients) {
-        this.category = type;
+    public Meal(String category, String name) {
+        this.category = category;
         this.name = name;
-        this.ingredients = ingredients;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCategory() {
@@ -43,12 +62,25 @@ public class Meal {
         this.ingredients = ingredients;
     }
 
+    public void addIngredientToMeal(Ingredient ingredient) {
+        if (ingredients == null) {
+            ingredients = new ArrayList<>();
+        }
+        ingredients.add(ingredient);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(CATEGORY);
         sb.append(category);
         sb.append('\n');
+        sb.append(this.toStringWithoutCategory());
+        return sb.toString();
+    }
+
+    public String toStringWithoutCategory() {
+        StringBuilder sb = new StringBuilder();
         sb.append(NAME);
         sb.append(name);
         sb.append('\n');
@@ -59,4 +91,8 @@ public class Meal {
         }
         return sb.toString();
     }
+
+    private static final String CATEGORY = "Category: ";
+    private static final String NAME = "Name: ";
+    private static final String INGREDIENTS = "Ingredients:";
 }
