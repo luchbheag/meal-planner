@@ -1,0 +1,20 @@
+--CREATE TABLE meals_db.meals (
+--  id int NOT NULL AUTO_INCREMENT,
+--  category varchar(15),
+--  name varchar(15),
+--  PRIMARY KEY (id)
+--);
+--
+--CREATE TABLE meals_db.ingredients (
+--  id int NOT NULL AUTO_INCREMENT,
+--  name varchar(15),
+--  PRIMARY KEY (id)
+--);
+--
+--CREATE TABLE meals_db.meal_ingredient (
+--  meal_id int NOT NULL,
+--  ingredient_id int NOT NULL,
+--  PRIMARY KEY (meal_id, ingredient_id),
+--  FOREIGN KEY (meal_id) REFERENCES meals_db.meals(id),
+--  FOREIGN KEY (ingredient_id) REFERENCES meals_db.ingredients(id)
+--);
