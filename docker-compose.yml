@@ -1,18 +1,23 @@
+#version: '3.1'
 version: '3.1'
 
 services:
+  mp:
+    depends_on:
+      - mp-db
+    build:
+      context: .
+    restart: always
+
   mp-db:
-    # 8.0 because 8.2 is not supported by MySQL Workbench
     image: mysql:8.0
     restart: always
     environment:
       MYSQL_DATABASE: 'mp_db'
       MYSQL_USER: 'mp_db_user'
-      MYSQL_PASSWORD: 'mp_db_password'
+      MYSQL_PASSWORD: 'mp_db_user'
       MYSQL_ROOT_PASSWORD: 'root'
     ports:
-      # <Port exposed> : < MySQL Port running inside container>
       - '3307:3306'
     expose:
-      # Opens port 3306 on the container
       - '3307'
