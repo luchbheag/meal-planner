@@ -22,5 +22,4 @@ java -jar target/meal-planner-1.0-SNAPSHOT.jar
 ## TODO
 * Add automatic tests
 * Add example of how to use it (from Hyperskill description of stages)
-* Add docker-file and docker-compose
-* Write how to install and run the project
+* Make deploy work with docker-file and docker-compose instead of running .jar manually 
