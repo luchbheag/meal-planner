@@ -4,6 +4,18 @@ The simple Meal Planner project based on [Hyperskill project](https://hyperskill
 
 Used technologies: Java, Hibernate, MySQL8, Docker
 ## How to Install and Run the Project
+The `maven` and `docker` are required. First, run database container in console
+```
+docker-compose -f docker-compose-test.yml up
+```
+Then, in folder `meal-planner` open console and run
+```
+mvn clean package
+```
+and then
+```
+java -jar target/meal-planner-1.0-SNAPSHOT.jar
+```
 
 ## How to Use the Project
 
