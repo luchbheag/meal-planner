@@ -1,6 +1,6 @@
 package org.example;
 
-import java.awt.*;
+import org.example.menu.Menu;
 
 /**
  * Hello world!
@@ -10,7 +10,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        Menu menu = new Menu();
+        org.example.menu.Menu menu = new Menu();
         menu.run();
     }
 }

@@ -71,12 +71,7 @@ public class Meal {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(CATEGORY);
-        sb.append(category);
-        sb.append('\n');
-        sb.append(this.toStringWithoutCategory());
-        return sb.toString();
+        return CATEGORY + category + '\n' + this.toStringWithoutCategory();
     }
 
     public String toStringWithoutCategory() {
