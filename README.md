@@ -18,6 +18,8 @@ java -jar target/meal-planner-1.0-SNAPSHOT.jar
 ```
 
 ## How to Use the Project
+The project's menu has three options: **add** meal (category, name, ingredients separated by comma), **show** meals by category, **exit**. 
+
 Example of standard execution:
 ```
 What would you like to do (add, show, exit)?
