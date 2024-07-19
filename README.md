@@ -16,6 +16,7 @@ and then
 ```
 java -jar target/meal-planner-1.0-SNAPSHOT.jar
 ```
+The docker-compose file for both database and app containers is in progress.
 
 ## How to Use the Project
 The project's menu has three options: **add** meal (category, name, ingredients separated by comma), **show** meals by category, **exit**. 
